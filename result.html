@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Square App by Kamal Sir - Calculate and display the square of a number.">
+    <title>Square App by Amey</title>
+    <style>
+        * {
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav {
+            background-color: #000;
+            padding: 10px 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #ff7e5f;
+        }
+
+        h1 {
+            color: #feb47b;
+            margin-bottom: 20px;
+        }
+
+        #msg {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <h1>Result</h1>
+        <h2 id="msg"></h2>
+
+        <script>
+            let msg = document.getElementById("msg");
+            let res = localStorage.getItem("res");
+
+            if (res === null) {
+                msg.innerHTML = "You are trying to trespass!";
+                function goback() {
+                    window.location.href = "index.html";
+                }
+                setTimeout(goback, 5000);
+            } else {
+                msg.innerHTML = "Square = " + parseFloat(res).toFixed(2);
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Square Finder App by Amey - Calculate and display the square of a number.">
+    <title>Square Finder App by Amey</title>
+    <style>
+        * {
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav {
+            background-color: #333;
+            padding: 10px 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #ff7e5f;
+        }
+
+        h1 {
+            color: #feb47b;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background: #ff7e5f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #e06d5c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <h1>Square Finder App</h1>
+        <form onsubmit="compute(event)">
+            <input type="number" step="any" placeholder="Enter number" id="num" />
+            <input type="submit" value="Find Square" />
+        </form>
+    </div>
+
+    <script>
+        function compute(event) {
+            event.preventDefault();
+            let num = document.getElementById("num");
+            if (num.value === "") {
+                alert("You did not enter a number");
+                num.focus();
+                return;
+            }
+            let n = parseFloat(num.value);
+            let r = n * n;
+            localStorage.setItem("res", r);
+            window.location.href = "result.html";
+        }
+    </script>
+</body>
+</html>
